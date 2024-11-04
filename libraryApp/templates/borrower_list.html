@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for borrower in borrowers %}
+<h1>Borrower List</h1>
+        {% if borrowers %}
+            {% for borrower in borrowers %}
+                <div class="borrower">
+                    <h3>{{ borrower.name }}</h3>
+                    <p>Email: {{ borrower.email }}</p>
+
+                    <div class="borrowed-books">
+                        <strong>Borrowed Books:</strong>
+                        {% if borrower.borrowed_books.all %}
+                            <ul>
+                                {% for book in borrower.borrowed_books.all %}
+                                    <li>{{ book.title }} by {{ book.author.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No books borrowed.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No borrowers found.</p>
+        {% endif %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+  <li>
+    {{book.title}} 
+    <br> Author: {{book.author}} 
+    <br> Description: {{book.description}} 
+    <br> Public_date: {{book.publiccation_date}}
+    <br><a href="{% url 'delete_book' book.pk%}">Delete This Book</a>
+  </li>
+</ul>
+{% endblock %}

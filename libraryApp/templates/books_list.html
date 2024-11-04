@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  {% for book in books %}
+    <ul>
+      <li>Title: {{book.title}} 
+        <br> Author : {{book.author}} 
+        <br> Public_date: {{book.publiccation_date}} 
+        <br> Description : {{book.description}} 
+        <br> <a href="{% url 'book_detail' book.pk %}">See Detail</a>
+        <br> <a href="{% url 'update_book' book.pk%}">Do you want to update ?</a>
+      </li>
+    </ul>
+  {% endfor %}
+{% endblock %}
